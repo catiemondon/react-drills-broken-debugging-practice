@@ -2,7 +2,14 @@ import React, { Component } from 'react'
 import './App.css'
 
 class App extends Component {
-  handleInput(value) {
+  constructor(){
+    super()
+    this.state={
+      input: ''
+    }
+    this.handleInput= this.handleInput.bind(this)
+  }
+  handleInput=(value)=>{
     this.setState({
       input: value
     })
@@ -11,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <input onChange={(e) => this.handleInput(e)} />
+        <input onChange={(e) => this.handleInput(e.target.value)} />
         <h1>{this.state.input}</h1>
       </div>
     )
